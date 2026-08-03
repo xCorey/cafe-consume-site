@@ -1,0 +1,36 @@
+name: Update reviews
+
+on:
+  schedule:
+    # Every Monday at 09:00 UTC. Edit the cron expression to change the cadence.
+    - cron: "0 9 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  sync-reviews:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch latest Google & Yelp reviews
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+          GOOGLE_PLACE_ID: ${{ secrets.GOOGLE_PLACE_ID }}
+          YELP_API_KEY: ${{ secrets.YELP_API_KEY }}
+          YELP_BUSINESS_ID: ${{ secrets.YELP_BUSINESS_ID }}
+        run: node scripts/fetch-reviews.mjs
+
+      - name: Commit reviews.json if it changed
+        run: |
+          git config user.name "review-sync-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add reviews.json
+          git diff --cached --quiet || git commit -m "Weekly review sync"
+          git push

@@ -1,0 +1,51 @@
+{
+  "updated": null,
+  "google": {
+    "rating": 5.0,
+    "totalReviews": 841,
+    "reviews": [
+      {
+        "author": "Atzyri Lopez",
+        "rating": 5,
+        "relativeTime": "3 months ago",
+        "text": "Says the space feels welcoming, with staff who treat every visit like family and offer genuine styling advice."
+      },
+      {
+        "author": "Amanda Merlino",
+        "rating": 5,
+        "relativeTime": "3 months ago",
+        "text": "Describes the owners and team as personable and kind, and hadn't found a vintage shop like it in years."
+      },
+      {
+        "author": "Santiago Garibay",
+        "rating": 5,
+        "relativeTime": "3 months ago",
+        "text": "Praises the varied, unique selection of vintage clothing and oddities, plus friendly help."
+      }
+    ]
+  },
+  "yelp": {
+    "rating": 4.0,
+    "totalReviews": 23,
+    "reviews": [
+      {
+        "author": "Michael G.",
+        "rating": 5,
+        "relativeTime": "3 months ago",
+        "text": "Calls out the matcha and cold brew as standouts, and likes that it's locally run."
+      },
+      {
+        "author": "Grace S.",
+        "rating": 5,
+        "relativeTime": "4 weeks ago",
+        "text": "Says the small iced Americano was excellent and the service was fast and friendly."
+      },
+      {
+        "author": "Martha G.",
+        "rating": 5,
+        "relativeTime": "7 months ago",
+        "text": "Recommends the simple, well-done menu of bacon or sausage, egg, and cheese sandwiches."
+      }
+    ]
+  }
+}
