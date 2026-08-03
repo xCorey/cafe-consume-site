@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café Consume · Coffee &amp; Vintage · McKinley Park, Chicago</title>
+<meta name="description" content="Café Consume — family-run coffee bar and vintage clothing shop sharing one storefront on S Western Ave in McKinley Park, Chicago.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Oswald:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EFE2C4;
+    --paper-dark: #E3CFA0;
+    --ink: #3B2A1E;
+    --denim: #3B5960;
+    --denim-dim: #4E6F77;
+    --brick: #B5522A;
+    --gold: #C99A3B;
+    --thread: #6B7A4F;
+    --line: rgba(59,42,30,0.2);
+    --radius: 2px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(35,38,43,0.05) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+
+  h1,h2,h3{
+    font-family: 'Fraunces', serif;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .eyebrow{
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--denim);
+  }
+  a{ color: inherit; }
+  img{ max-width:100%; display:block; }
+  .wrap{ max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- top ribbon ---------- */
+  .ribbon{
+    background: var(--denim);
+    color: var(--paper);
+    font-family:'Oswald', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-align:center;
+    padding: 8px 12px;
+  }
+  .ribbon strong{ color: var(--gold); }
+
+  /* ---------- nav ---------- */
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 22px 24px;
+    max-width: 1080px; margin: 0 auto;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size: 1.25rem;
+  }
+  .brand span{ color:var(--brick); }
+  .nav-links{
+    display:flex; gap: 28px;
+    font-family:'Oswald', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .nav-links a{ text-decoration:none; border-bottom: 1px solid transparent; padding-bottom: 2px; }
+  .nav-links a:hover{ border-color: var(--brick); }
+  .nav-links a:focus-visible, a:focus-visible{ outline: 2px solid var(--denim); outline-offset: 3px; }
+
+  /* ---------- hero: hanging tag ---------- */
+  .hero{
+    padding: 40px 24px 90px;
+    display:flex; justify-content:center;
+  }
+  .tag{
+    position:relative;
+    max-width: 640px;
+    width:100%;
+    background: var(--paper-dark);
+    border: 1.5px solid var(--ink);
+    border-radius: 14px;
+    padding: 56px 40px 44px;
+    text-align:center;
+    box-shadow: 0 26px 50px -30px rgba(35,38,43,0.55);
+  }
+  .tag::before{
+    /* string */
+    content:"";
+    position:absolute;
+    top:-46px; left:50%; transform: translateX(-50%);
+    width: 2px; height: 48px;
+    background: repeating-linear-gradient(var(--ink) 0 6px, transparent 6px 10px);
+  }
+  .tag::after{
+    /* punch hole */
+    content:"";
+    position:absolute;
+    top:-4px; left:50%; transform: translateX(-50%);
+    width: 16px; height:16px;
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    border-radius: 50%;
+  }
+  .tag .eyebrow{ margin-bottom: 14px; }
+  .tag h1{
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .tag .sub{
+    font-family:'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--denim);
+    font-size: 1.15rem;
+    margin-bottom: 22px;
+  }
+  .tag .desc{
+    max-width: 460px;
+    margin: 0 auto 26px;
+    font-size: 0.98rem;
+    color: #4A3F33;
+  }
+  .badges{
+    display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom: 28px;
+  }
+  .badge{
+    font-family:'Oswald', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid var(--ink);
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--paper);
+  }
+  .tag-price{
+    font-family:'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    border-top: 1px dashed var(--line);
+    padding-top: 18px;
+    display:flex; justify-content: space-between;
+    color: var(--denim);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  a.tag-price:hover, a.tag-price:focus-visible{ color: var(--brick); }
+  .cta-row{
+    display:flex; gap:14px; justify-content:center; margin-top: 26px; flex-wrap:wrap;
+  }
+  .btn{
+    font-family:'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.82rem;
+    font-weight:600;
+    padding: 13px 24px;
+    border-radius: 999px;
+    text-decoration:none;
+    display:inline-block;
+    border: 1.5px solid var(--ink);
+  }
+  .btn.primary{ background: var(--brick); color: var(--paper); border-color: var(--brick); }
+  .btn.primary:hover{ background: #8f4020; }
+  .btn.ghost{ background: transparent; color: var(--ink); }
+  .btn.ghost:hover{ background: var(--ink); color: var(--paper); }
+
+  /* ---------- seam divider ---------- */
+  .seam{
+    display:flex; align-items:center; gap: 14px;
+    max-width: 1080px; margin: 0 auto; padding: 0 24px 10px;
+    color: var(--thread);
+  }
+  .seam::before, .seam::after{
+    content:""; flex:1; height:0; border-top: 1px dashed var(--thread);
+  }
+  .seam span{ font-family:'Oswald', sans-serif; font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; }
+
+  /* ---------- two shops split ---------- */
+  .split{
+    display:grid; grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1.5px solid var(--ink);
+    border-radius: 16px;
+    overflow:hidden;
+    margin: 24px 0 70px;
+  }
+  .panel{ padding: 44px 38px; position:relative; }
+  .panel.coffee{ background: var(--denim); color: var(--paper); }
+  .panel.vintage{ background: var(--brick); color: var(--paper); }
+  .panel + .panel{ border-left: 1.5px dashed rgba(242,236,220,0.5); }
+  .panel .eyebrow{ color: var(--gold); margin-bottom: 10px; }
+  .panel h2{ font-size: 1.7rem; margin-bottom: 14px; color: var(--paper); }
+  .panel p{ font-size: 0.95rem; opacity: 0.92; }
+  .panel .stat{
+    margin-top: 22px; display:flex; gap: 22px; flex-wrap:wrap;
+  }
+  .panel .stat div{ font-family:'Oswald', sans-serif; }
+  .panel .stat b{ display:block; font-size: 1.5rem; }
+  .panel .stat small{ font-size: 0.68rem; letter-spacing:0.08em; text-transform:uppercase; opacity: 0.8; }
+
+  @media (max-width: 720px){
+    .split{ grid-template-columns: 1fr; }
+    .panel + .panel{ border-left:none; border-top: 1.5px dashed rgba(242,236,220,0.5); }
+  }
+
+  /* ---------- section heads ---------- */
+  section{ padding: 10px 24px 80px; }
+  .section-head{ max-width: 1080px; margin: 0 auto 34px; text-align:center; }
+  .section-head h2{ font-size: clamp(1.8rem, 4vw, 2.4rem); margin-top:8px; }
+
+  /* ---------- story / about ---------- */
+  .story{
+    max-width: 900px; margin: 0 auto;
+    display:grid; grid-template-columns: 1.3fr 1fr; gap: 44px;
+    align-items:start;
+  }
+  @media (max-width: 780px){ .story{ grid-template-columns: 1fr; } }
+  .story p{ font-size: 0.98rem; color:#4A3F33; margin: 0 0 16px; }
+  .story p:last-child{ margin-bottom:0; }
+  .story .names{
+    margin-top: 20px; display:flex; gap:8px; flex-wrap:wrap;
+  }
+  .timeline{
+    background: var(--paper-dark);
+    border: 1.5px solid var(--ink);
+    border-radius: 10px;
+    padding: 28px 26px;
+  }
+  .timeline-item{
+    display:flex; gap: 16px;
+    padding-bottom: 20px; margin-bottom: 20px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .timeline-item:last-child{ border-bottom:none; padding-bottom:0; margin-bottom:0; }
+  .timeline-item .yr{
+    font-family:'Oswald', sans-serif; font-weight:700; font-size:1.05rem;
+    color: var(--brick); min-width: 52px;
+  }
+  .timeline-item .what b{ display:block; font-size: 0.92rem; margin-bottom:2px; }
+  .timeline-item .what span{ font-size: 0.84rem; color: #6B5D4C; }
+
+  /* ---------- photo wall ---------- */
+  .photo-wall{
+    display:grid; grid-template-columns: repeat(4, 1fr); gap: 22px;
+    max-width: 1080px; margin: 0 auto;
+  }
+  @media (max-width: 860px){ .photo-wall{ grid-template-columns: repeat(2, 1fr); } }
+  .polaroid{
+    background: var(--paper-dark);
+    border: 1.5px solid var(--ink);
+    border-radius: 4px;
+    padding: 10px 10px 16px;
+    transform: rotate(var(--tilt, 0deg));
+    transition: transform 0.2s ease;
+  }
+  .polaroid:hover{ transform: rotate(0deg) translateY(-3px); }
+  .photo-wall > :nth-child(1){ --tilt: -2deg; }
+  .photo-wall > :nth-child(2){ --tilt: 1.4deg; }
+  .photo-wall > :nth-child(3){ --tilt: -1deg; }
+  .photo-wall > :nth-child(4){ --tilt: 2.2deg; }
+  .polaroid .frame{
+    aspect-ratio: 1/1;
+    border-radius: 2px;
+    display:flex; align-items:center; justify-content:center;
+    color: var(--paper);
+  }
+  .polaroid .frame svg{ width: 42%; height: 42%; opacity: 0.85; }
+  .polaroid figcaption{
+    margin: 10px 2px 0;
+    font-family:'Oswald', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    text-align:center;
+    color: #5C4F3F;
+  }
+  .photo-note{
+    max-width: 620px; margin: 30px auto 0; text-align:center;
+    font-size: 0.85rem; color: #6B5D4C;
+  }
+  .photo-note a{ color: var(--brick); }
+
+  /* ---------- clothesline reviews ---------- */
+  .clothesline{
+    position:relative;
+    max-width: 1080px; margin: 30px auto 0;
+    padding-top: 30px;
+  }
+  .clothesline::before{
+    content:"";
+    position:absolute; top:0; left:0; right:0; height:2px;
+    background: repeating-linear-gradient(90deg, var(--ink) 0 10px, transparent 10px 16px);
+  }
+  .pegs{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  @media (max-width: 860px){ .pegs{ grid-template-columns: 1fr; max-width:420px; margin:0 auto; } }
+  .peg-card{
+    background: var(--paper-dark);
+    border: 1.5px solid var(--ink);
+    border-radius: 10px;
+    padding: 26px 22px 22px;
+    position: relative;
+    transform: rotate(var(--tilt, -1.2deg));
+  }
+  .pegs > :nth-child(1){ --tilt: -1.6deg; }
+  .pegs > :nth-child(2){ --tilt: 1.1deg; }
+  .pegs > :nth-child(3){ --tilt: -0.7deg; }
+  .peg-card::before{
+    content:"";
+    position:absolute; top:-16px; left:50%; transform: translateX(-50%);
+    width: 20px; height: 12px;
+    background: var(--gold);
+    border-radius: 3px;
+    border: 1.5px solid var(--ink);
+  }
+  .peg-card p{ font-size: 0.92rem; font-style: italic; color: #4A3F33; margin-bottom: 14px; }
+  .peg-card .stars{ color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 10px; }
+  .peg-card .who{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
+  .peg-card .who b{ font-family:'Oswald', sans-serif; font-size: 0.78rem; letter-spacing:0.03em; color: var(--ink); font-weight:600; }
+  .peg-card .who .g{ display:inline-flex; align-items:center; gap:4px; font-family:'Oswald', sans-serif; font-size: 0.66rem; letter-spacing:0.04em; text-transform:uppercase; color: var(--thread); }
+  .peg-card .who .g svg{ width:12px; height:12px; }
+
+  .rating-summary{
+    display:flex; align-items:center; justify-content:center; gap: 22px;
+    flex-wrap:wrap;
+    max-width: 620px; margin: 0 auto 8px;
+    text-align:left;
+  }
+  .rating-summary .num{ font-family:'Fraunces', serif; font-weight:700; font-size: 3rem; line-height:1; }
+  .rating-summary .stars-big{ color: var(--gold); font-size: 1.15rem; letter-spacing: 3px; margin-bottom: 4px; }
+  .rating-summary .count{ font-family:'Oswald', sans-serif; font-size: 0.8rem; color: var(--thread); }
+  .rating-tags{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin: 18px auto 0; max-width: 640px; }
+  .rating-tag{
+    font-family:'Oswald', sans-serif; font-size: 0.7rem; letter-spacing:0.04em; text-transform:uppercase;
+    border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; color: var(--denim);
+    background: var(--paper-dark);
+  }
+  .see-all{
+    display:block; text-align:center; margin: 30px auto 0;
+    font-family:'Oswald', sans-serif; font-size: 0.78rem; letter-spacing:0.06em; text-transform:uppercase;
+    color: var(--brick); text-decoration:none; border-bottom: 1px solid var(--brick); width: fit-content; padding-bottom:2px;
+  }
+  .see-all:hover{ color: #7a3f1f; border-color:#7a3f1f; }
+
+  .sync-badge{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:'Oswald', sans-serif; font-size: 0.68rem; letter-spacing:0.06em; text-transform:uppercase;
+    color: var(--thread); margin-top: 10px;
+  }
+  .sync-badge .dot{
+    width:7px; height:7px; border-radius:50%; background: var(--thread);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.35; } }
+  @media (prefers-reduced-motion: reduce){ .sync-badge .dot{ animation:none; } }
+
+  .platform-block{ max-width: 1080px; margin: 0 auto 56px; }
+  .platform-block:last-child{ margin-bottom: 0; }
+  .platform-head{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    font-family:'Oswald', sans-serif; font-size: 0.82rem; letter-spacing:0.06em; text-transform:uppercase;
+    color: var(--denim); margin-bottom: 18px;
+  }
+  .platform-head svg{ width:18px; height:18px; }
+
+  .peg-card.skeleton p, .peg-card.skeleton .who{ opacity: 0.35; }
+  .peg-card.skeleton{ pointer-events:none; }
+  .reviews-empty{ text-align:center; font-size: 0.9rem; color: var(--thread); padding: 20px; }
+
+  /* ---------- visit / info ---------- */
+  .info-grid{
+    display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px;
+    max-width: 1080px; margin: 0 auto;
+    align-items: start;
+  }
+  @media (max-width: 780px){ .info-grid{ grid-template-columns: 1fr; } }
+  .info-card{
+    border: 1.5px solid var(--ink); border-radius: 12px; padding: 30px 32px;
+    background: var(--paper-dark);
+  }
+  .info-card h3{ font-size:1.2rem; margin-bottom: 6px; }
+  .info-card .addr{ font-family:'Oswald', sans-serif; letter-spacing:0.02em; margin-bottom: 22px; color: var(--denim); display:inline-block; text-decoration:none; border-bottom: 1px dashed var(--denim); }
+  .info-card .addr:hover, .info-card .addr:focus-visible{ color: var(--brick); border-color: var(--brick); }
+  .hours-row{ display:flex; justify-content:space-between; font-size:0.92rem; padding: 8px 0; border-bottom: 1px dotted var(--line); }
+  .hours-row:last-of-type{ border-bottom:none; }
+  .hours-row b{ font-family:'Oswald', sans-serif; font-weight:500; }
+  .contact-list{ list-style:none; padding:0; margin: 22px 0 0; display:grid; gap:10px; }
+  .contact-list a{ text-decoration:none; font-size:0.95rem; border-bottom: 1px solid var(--line); padding-bottom:2px; }
+  .contact-list a:hover{ border-color: var(--brick); color: var(--brick); }
+
+  .map-embed{
+    border: 1.5px solid var(--ink); border-radius: 12px; overflow:hidden; height: 100%; min-height: 320px;
+  }
+  .map-embed iframe{ width:100%; height:100%; min-height:320px; border:0; display:block; }
+
+  /* ---------- footer ---------- */
+  footer{
+    background: var(--ink); color: var(--paper);
+    padding: 40px 24px 30px;
+    text-align:center;
+  }
+  footer .brand{ color: var(--paper); justify-content:center; margin-bottom: 8px; }
+  footer p{ font-size: 0.82rem; opacity: 0.7; margin: 4px 0; }
+  footer a{ color: var(--gold); text-decoration:none; }
+  footer a:hover{ text-decoration:underline; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ribbon">Family-run on <strong>S Western Ave</strong> · Coffee bar &amp; vintage shop, one door apart</div>
+
+<nav>
+  <div class="brand">Café <span>Consume</span></div>
+  <div class="nav-links">
+    <a href="#shops">The Shops</a>
+    <a href="#photos">Photos</a>
+    <a href="#story">Our Story</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#visit">Visit</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="tag">
+    <div class="eyebrow">McKinley Park · Chicago</div>
+    <h1>Café Consume</h1>
+    <p class="sub">coffee, croissants &amp; a rack of vintage next door</p>
+    <p class="desc">A family-owned coffee bar sharing a storefront with Consume Vintage — a curated vintage clothing shop. Two chef brothers pull the espresso; the shop next door keeps new racks stocked every Friday.</p>
+    <div class="badges">
+      <span class="badge">Pet friendly</span>
+      <span class="badge">Women-owned</span>
+      <span class="badge">Latino-owned</span>
+      <span class="badge">Family-run</span>
+    </div>
+    <a class="tag-price" href="https://www.google.com/maps/search/?api=1&amp;query=3452+S+Western+Ave%2C+Chicago%2C+IL+60608" target="_blank" rel="noopener">
+      <span>3452 S Western Ave</span>
+      <span>Chicago, IL 60608 ↗</span>
+    </a>
+    <div class="cta-row">
+      <a class="btn primary" href="tel:+18722690557">Call the café</a>
+      <a class="btn ghost" href="https://linktr.ee/consumechicago" target="_blank" rel="noopener">All the links</a>
+    </div>
+  </div>
+</header>
+
+<div class="seam" id="shops"><span>Two doors, one family</span></div>
+
+<div class="wrap">
+  <div class="split">
+    <div class="panel coffee">
+      <div class="eyebrow">Café Consume</div>
+      <h2>The coffee side</h2>
+      <p>Espresso drinks, a honey-and-cinnamon Café Miel, and breakfast sandwiches built on croissants or everything bagels. Cold brew gets a splash of milk and cinnamon if you ask.</p>
+      <div class="stat">
+        <div><b>7–3</b><small>Mon, Fri–Sun</small></div>
+        <div><b>2</b><small>Brothers behind the bar</small></div>
+      </div>
+    </div>
+    <div class="panel vintage">
+      <div class="eyebrow">Consume Vintage</div>
+      <h2>The vintage side</h2>
+      <p>Retro sportswear, 80s and 90s finds, and new racks every Friday, right next to the espresso machine. Browse a bag of pins for your cap while your order comes up.</p>
+      <div class="stat">
+        <div><b>Fri–Tue</b><small>Shop open days</small></div>
+        <div><b>2019</b><small>Opened in McKinley Park</small></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="photos">
+  <div class="section-head">
+    <div class="eyebrow">From the socials</div>
+    <h2>A few shots from the shop</h2>
+  </div>
+  <div class="photo-wall">
+    <figure class="polaroid">
+      <div class="frame" style="background: var(--denim);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3.5c.5 1 .5 1.5 0 2.5M12 3.5c.5 1 .5 1.5 0 2.5"/></svg>
+      </div>
+      <figcaption>Vanilla bourbon cold brew, splash of cinnamon</figcaption>
+    </figure>
+    <figure class="polaroid">
+      <div class="frame" style="background: var(--brick);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 12c1-3 4-5 9-5s8 2 9 5c-1 1-3 2-3 4a2 2 0 0 1-4 0v-1a2 2 0 0 0-4 0v1a2 2 0 0 1-4 0c0-2-2-3-3-4Z"/></svg>
+      </div>
+      <figcaption>Bacon, egg &amp; cheese on an everything bagel</figcaption>
+    </figure>
+    <figure class="polaroid">
+      <div class="frame" style="background: var(--gold);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 16V9c2 1 3-1 4-1s2 2 4 2 3-2 4-2 2 2 4 1v7c-2 1-3-1-4-1s-2 2-4 2-3-2-4-2-2 2-4 1Z"/></svg>
+      </div>
+      <figcaption>Toasted almond croissant</figcaption>
+    </figure>
+    <figure class="polaroid">
+      <div class="frame" style="background: var(--thread);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3 8 6H5v3l-3 4 3 4v3h3l4 3 4-3h3v-3l3-4-3-4V6h-3l-4-3Z"/><circle cx="12" cy="12" r="2.4"/></svg>
+      </div>
+      <figcaption>Vintage racks next door</figcaption>
+    </figure>
+  </div>
+  <p class="photo-note">These are placeholder illustrations standing in for real photos. Send over your favorite shots from <a href="https://www.instagram.com/cafeconsume/" target="_blank" rel="noopener">@cafeconsume</a> or your camera roll and they'll go straight in — Instagram and Google don't allow their photos to be pulled onto other sites automatically.</p>
+</section>
+
+<section id="story">
+  <div class="section-head">
+    <div class="eyebrow">Family business, two doors</div>
+    <h2>How Café Consume came to be</h2>
+  </div>
+  <div class="story">
+    <div>
+      <p>Andrés Merlos started selling vintage clothes back in college, meeting people around campus to pass along pieces he'd found. That habit became Consume Vintage, which he opened in McKinley Park in late 2019 with his mother, Olga — the two of them still do "the hunt" together at flea markets and estate sales, curating pieces for the nostalgia and story behind them, not just the label.</p>
+      <p>During the pandemic, Andrés bought the building next door and spent the next few years turning it into Café Consume with his father and brother, Guillermo — building the bar, reupholstering the seats, and pouring the concrete themselves. The coffee is sourced from Guatemala and El Salvador, and the space stays open enough that you can watch the coffee and kitchen work happen while you wait.</p>
+      <p>Out back, the patio does double duty: live music some evenings, and on weekends it turns into a small vintage pop-up market.</p>
+      <div class="names">
+        <span class="badge">Andrés Merlos</span>
+        <span class="badge">Guillermo Merlos</span>
+        <span class="badge">Olga Merlos</span>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="yr">2019</div>
+        <div class="what"><b>Consume Vintage opens</b><span>Andrés &amp; Olga start curating vintage finds in McKinley Park.</span></div>
+      </div>
+      <div class="timeline-item">
+        <div class="yr">2024</div>
+        <div class="what"><b>Café Consume opens next door</b><span>Built by hand by Andrés, Guillermo, and their father.</span></div>
+      </div>
+      <div class="timeline-item">
+        <div class="yr">Today</div>
+        <div class="what"><b>Two shops, one family</b><span>Coffee, pastries, and a rack of vintage, side by side.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="section-head">
+    <div class="eyebrow">Straight from Google &amp; Yelp</div>
+    <h2>What the neighborhood says</h2>
+    <div class="sync-badge" id="sync-badge"><span class="dot"></span><span id="sync-text">Syncing latest reviews…</span></div>
+  </div>
+
+  <div class="platform-block">
+    <div class="platform-head">
+      <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.5 12.2c0-.8-.1-1.5-.2-2.2H12v4.3h5.9c-.3 1.4-1 2.5-2.2 3.3v2.7h3.6c2.1-1.9 3.2-4.8 3.2-8.1z"/><path fill="#34A853" d="M12 23c2.9 0 5.4-1 7.2-2.6l-3.6-2.7c-1 .7-2.2 1.1-3.6 1.1-2.8 0-5.1-1.9-6-4.4H2.3v2.8C4.1 20.6 7.8 23 12 23z"/><path fill="#FBBC05" d="M6 14.4c-.2-.7-.4-1.4-.4-2.2s.1-1.5.4-2.2V7.2H2.3C1.5 8.7 1 10.3 1 12s.5 3.3 1.3 4.8L6 14.4z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3 .6 4.1 1.6l3-3.1C17.4 2.1 14.9 1 12 1 7.8 1 4.1 3.4 2.3 7.2L6 9.8c.9-2.5 3.2-4.4 6-4.4z"/></svg>
+      <span>Google Reviews</span>
+    </div>
+    <div class="rating-summary" id="google-summary"></div>
+    <div class="clothesline">
+      <div class="pegs" id="google-reviews">
+        <div class="peg-card skeleton"><div class="stars">★★★★★</div><p>Loading the latest review…</p><div class="who"><b>—</b></div></div>
+        <div class="peg-card skeleton"><div class="stars">★★★★★</div><p>Loading the latest review…</p><div class="who"><b>—</b></div></div>
+        <div class="peg-card skeleton"><div class="stars">★★★★★</div><p>Loading the latest review…</p><div class="who"><b>—</b></div></div>
+      </div>
+    </div>
+    <a class="see-all" href="https://www.google.com/maps/search/?api=1&amp;query=Consume+Vintage+3452+S+Western+Ave+Chicago" target="_blank" rel="noopener">Read all reviews on Google ↗</a>
+  </div>
+
+  <div class="platform-block">
+    <div class="platform-head">
+      <svg viewBox="0 0 24 24"><path fill="#D32323" d="M12 1c6 0 11 4.9 11 11s-5 11-11 11S1 18 1 12 6 1 12 1z"/><path fill="#fff" d="M13.4 5.9c-.3.7-1.6 5.8-1.9 6.7-.1.4-.3.5-.7.4-.7-.2-1.4-.5-2-1-.3-.2-.3-.4-.1-.7.4-.6 3.1-4.7 3.4-5.1.3-.4.7-.6 1.1-.5.3.1.4.3.2.6v.6zm-4 8.8c.6.2 1.3.3 2 .3.6 0 .6.1.5.6-.2.7-.4 1.4-.6 2.1-.1.4-.4.5-.8.3-.6-.3-1.2-.7-1.6-1.2-.3-.3-.3-.5 0-.8.2-.4.3-1 .5-1.3z"/></svg>
+      <span>Yelp Reviews</span>
+    </div>
+    <div class="rating-summary" id="yelp-summary"></div>
+    <div class="clothesline">
+      <div class="pegs" id="yelp-reviews">
+        <div class="peg-card skeleton"><div class="stars">★★★★★</div><p>Loading the latest review…</p><div class="who"><b>—</b></div></div>
+        <div class="peg-card skeleton"><div class="stars">★★★★★</div><p>Loading the latest review…</p><div class="who"><b>—</b></div></div>
+        <div class="peg-card skeleton"><div class="stars">★★★★★</div><p>Loading the latest review…</p><div class="who"><b>—</b></div></div>
+      </div>
+    </div>
+    <a class="see-all" href="https://www.yelp.com/biz/caf%C3%A9-consume-chicago-3" target="_blank" rel="noopener">Read all reviews on Yelp ↗</a>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="section-head">
+    <div class="eyebrow">Come by</div>
+    <h2>Find the storefront</h2>
+  </div>
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>Café Consume &amp; Consume Vintage</h3>
+      <a class="addr" href="https://www.google.com/maps/search/?api=1&amp;query=3452+S+Western+Ave%2C+Chicago%2C+IL+60608" target="_blank" rel="noopener">3452 S Western Ave, Chicago, IL 60608 ↗</a>
+      <div class="hours-row"><span>Café Consume</span><b>Mon, Fri–Sun · 7 AM–3 PM</b></div>
+      <div class="hours-row"><span>Café Consume</span><b>Closed Tue–Thu</b></div>
+      <div class="hours-row"><span>Consume Vintage</span><b>Fri–Tue · from 10 AM</b></div>
+      <ul class="contact-list">
+        <li><a href="tel:+18722690557">(872) 269-0557</a></li>
+        <li><a href="https://linktr.ee/consumechicago" target="_blank" rel="noopener">linktr.ee/consumechicago</a></li>
+        <li><a href="https://www.instagram.com/cafeconsume/" target="_blank" rel="noopener">@cafeconsume on Instagram</a></li>
+      </ul>
+    </div>
+    <div class="map-embed">
+      <iframe
+        title="Map to Café Consume, 3452 S Western Ave, Chicago, IL"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=3452+S+Western+Ave,+Chicago,+IL+60608&output=embed">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand">Café <span style="color:var(--gold);">Consume</span></div>
+  <p><a href="https://www.google.com/maps/search/?api=1&amp;query=3452+S+Western+Ave%2C+Chicago%2C+IL+60608" target="_blank" rel="noopener">3452 S Western Ave, Chicago, IL 60608</a> · <a href="tel:+18722690557">(872) 269-0557</a></p>
+  <p>Coffee bar &amp; vintage shop, family-owned and run side by side.</p>
+</footer>
+
+<script>
+  // Fallback snapshot shown instantly and used if reviews.json can't be fetched
+  // (e.g. opening the file directly). The real file is rewritten weekly by
+  // .github/workflows/update-reviews.yml — see README.md.
+  const FALLBACK_REVIEWS = {
+    updated: null,
+    google: {
+      rating: 5.0, totalReviews: 841,
+      reviews: [
+        { author: "Atzyri Lopez", rating: 5, relativeTime: "3 months ago",
+          text: "Says the space feels welcoming, with staff who treat every visit like family and offer genuine styling advice." },
+        { author: "Amanda Merlino", rating: 5, relativeTime: "3 months ago",
+          text: "Describes the owners and team as personable and kind, and hadn't found a vintage shop like it in years." },
+        { author: "Santiago Garibay", rating: 5, relativeTime: "3 months ago",
+          text: "Praises the varied, unique selection of vintage clothing and oddities, plus friendly help." }
+      ]
+    },
+    yelp: {
+      rating: 4.0, totalReviews: 23,
+      reviews: [
+        { author: "Michael G.", rating: 5, relativeTime: "3 months ago",
+          text: "Calls out the matcha and cold brew as standouts, and likes that it's locally run." },
+        { author: "Grace S.", rating: 5, relativeTime: "4 weeks ago",
+          text: "Says the small iced Americano was excellent and the service was fast and friendly." },
+        { author: "Martha G.", rating: 5, relativeTime: "7 months ago",
+          text: "Recommends the simple, well-done menu of bacon or sausage, egg, and cheese sandwiches." }
+      ]
+    }
+  };
+
+  function stars(n){
+    const full = Math.round(n);
+    return "★★★★★☆☆☆☆☆".slice(5 - full, 10 - full);
+  }
+
+  function renderPlatform(prefix, data){
+    const summaryEl = document.getElementById(prefix + "-summary");
+    const listEl = document.getElementById(prefix + "-reviews");
+    if (!data) { listEl.innerHTML = '<div class="reviews-empty">Reviews unavailable right now.</div>'; return; }
+
+    summaryEl.innerHTML = `
+      <div><div class="num">${data.rating.toFixed(1)}</div></div>
+      <div>
+        <div class="stars-big">${stars(data.rating)}</div>
+        <div class="count">${data.totalReviews.toLocaleString()} reviews</div>
+      </div>`;
+
+    listEl.innerHTML = data.reviews.slice(0, 3).map(r => `
+      <div class="peg-card">
+        <div class="stars">${stars(r.rating)}</div>
+        <p>${r.text}</p>
+        <div class="who"><b>${r.author}</b><span class="g">${r.relativeTime || ""}</span></div>
+      </div>
+    `).join("");
+  }
+
+  function renderAll(data){
+    renderPlatform("google", data.google);
+    renderPlatform("yelp", data.yelp);
+    const syncText = document.getElementById("sync-text");
+    if (data.updated){
+      const d = new Date(data.updated);
+      syncText.textContent = "Reviews last synced " + d.toLocaleDateString(undefined, { year:"numeric", month:"short", day:"numeric" });
+    } else {
+      syncText.textContent = "Showing a saved snapshot — live sync not yet configured";
+    }
+  }
+
+  // Paint the fallback immediately, then try to replace it with the live file.
+  renderAll(FALLBACK_REVIEWS);
+  fetch("./reviews.json", { cache: "no-store" })
+    .then(res => { if (!res.ok) throw new Error("no reviews.json"); return res.json(); })
+    .then(renderAll)
+    .catch(() => { /* keep fallback already rendered */ });
+</script>
+
+</body>
+</html>
